@@ -5,14 +5,8 @@ import MailboxForm from "./components/MailboxForm";
 import MailboxDetails from "./components/MailboxDetails";
 import MailboxList from "./components/MailboxList";
 
-const initalMailboxData = {
-  _id: 1,
-  boxSize: 'Small',
-  boxholder: 'Alex',
-};
-
 const App = () => {
-  const [mailboxes, setMailboxes] = useState(initalMailboxData)
+  const [mailboxes, setMailboxes] = useState([])
 
   function addBox(newMailboxData) {
     newMailboxData._id = mailboxes.length + 1;
@@ -22,12 +16,12 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <h1>Mailbox!</h1>
       <Routes>
-        <Route path="/" element={<h3>Home Page</h3>} />
-        <Route path="/mailboxes" element={<MailboxList />} />
+        <Route path="/" element={<h1>Mailbox</h1>} />
+        <Route path="/mailboxes" element={<MailboxList mailboxes={mailboxes} />} />
         <Route path="/new-mailbox" element={<MailboxForm addBox={addBox} />} />
-        <Route path="/mailboxes/:mailboxId" element={<MailboxDetails />} />
+        <Route path="/mailboxes/:mailboxId" element={<MailboxDetails mailboxes={mailboxes} />} />
+        <Route path="*" element={<h2>Mailbox not found!</h2>} />
       </Routes>
     </>
   )

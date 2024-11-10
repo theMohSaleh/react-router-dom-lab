@@ -24,11 +24,11 @@ const MailboxForm = (props) => {
 
     return (
         <main>
-            <h2>New Mailbox</h2>
+            <h1>New Mailbox</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="boxSize">Box Size:</label>
                 <input
-                    type="text"
+                    type="number"
                     id="boxSize"
                     name="boxSize"
                     value={formData.boxSize}
@@ -36,7 +36,7 @@ const MailboxForm = (props) => {
                 />
                 <label htmlFor="boxholder">Boxholder:</label>
                 <input
-                    type="number"
+                    type="text"
                     id="boxholder"
                     name="boxholder"
                     value={formData.boxholder}
